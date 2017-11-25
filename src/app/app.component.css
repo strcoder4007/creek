@@ -1,7 +1,15 @@
-body {
+.myCanvas {
+    text-align: center;
+    font-family: "roboto";
+    font-size: 5em;
+    color: whitesmoke;
     background-color: #222;
 }
-.testing {
-    background-color: red;
-    height: 30px;
+
+.tagLine {
+    text-align: right;
+    font-family: "roboto";
+    font-size: 1em;
+    color: whitesmoke;
+    background-color: #222;
 }

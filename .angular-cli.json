@@ -20,10 +20,13 @@
       "prefix": "app",
       "styles": [
         "styles.css",
-        "../node_modules/materialize-css/dist/css/materialize.min.css"
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/roboto-fontface/css/roboto/roboto-fontface.css",
+        "../node_modules/font-awesome/css/font-awesome.css"
       ],
       "scripts": [
-          "../node_modules/materialize-css/dist/js/materialize.min.js"
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
