@@ -25,12 +25,6 @@ export class AppComponent implements OnInit {
         return this.http.get(data);
     }
 
-    processJson(url) {
-        this.getposts(url).subscribe((data) => {
-            this.sessionKey = data['session']['key'];
-        })
-    }
-
     ngOnInit(): void {
         var baseUrl = "http://localhost:4200/";
         //var baseUrl = "http://18.221.40.67/creek/";
