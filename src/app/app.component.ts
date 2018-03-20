@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { Md5 } from '../../node_modules/ts-md5/dist/md5.js';
@@ -10,13 +10,14 @@ import 'rxjs/Rx';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
 
     sessionKey: String = "";
     getTracks: any;
     getArtists: any;
     getAlbums: any;
     myAlbums = [];
+    cnt = 0;
 
     constructor(private http: HttpClient) {
     }
@@ -33,6 +34,7 @@ export class AppComponent implements OnInit {
         //var tokenUrl = http://localhost:4200/?token=eWBfekFEsbSsI9x5JyuzL0NWReZcyWRB
         var curUrl = window.location.href;
         var apiSign = "";
+        /*
         if (curUrl == baseUrl) {
             window.location.replace("http://www.last.fm/api/auth/?api_key=" + apiKey + "&cb=" + baseUrl);
         }
@@ -45,7 +47,7 @@ export class AppComponent implements OnInit {
             this.getposts(data).subscribe((res) => {
                 this.sessionKey = res['session']['key'];
             })
-
+            */
             let getArtistsUrl = "http://ws.audioscrobbler.com/2.0/?method=user.gettopartists&user=strgamer4007&api_key=" + apiKey + "&format=json";
             this.getposts(getArtistsUrl).subscribe((res) => {
                 this.getArtists = res['topartists']['artist'];
@@ -62,7 +64,7 @@ export class AppComponent implements OnInit {
                                             let junk = albumInfoRes['album'].wiki.published;
                                             if(parseInt(junk.split(' ')[2]) >= 2017) {
                                                 this.myAlbums.push(albumInfoRes['album']);
-                                                console.log("selected album: ", albumInfoRes['album']);
+                                                console.log(albumInfoRes['album']);
                                             }
                                         }
                                     }
@@ -71,13 +73,13 @@ export class AppComponent implements OnInit {
                         }
                     })
                 }
-                
             })
-
-        }
-
+        //}
     }
-
+    ngAfterViewInit() {
+        //console.log("done!");
+        //localStorage.setItem("myAlbums", this.myAlbums);
+    }
 }
 
 /*

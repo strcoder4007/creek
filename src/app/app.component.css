@@ -13,3 +13,11 @@
     color: whitesmoke;
     background-color: #222;
 }
+
+.albumSquare {
+    text-align: left;
+    font-family: "roboto";
+    font-size: 25px !important;
+    color: whitesmoke;
+    background-color: #222;
+}
